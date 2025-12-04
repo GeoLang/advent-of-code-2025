@@ -101,7 +101,6 @@ struct Day1: ParsableCommand {
 
         print("Clicks: \(clicks)")
     }
-
     
     fileprivate func mapDirection(_ direction: String) -> Int {
         switch direction {

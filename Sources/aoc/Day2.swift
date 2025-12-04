@@ -26,6 +26,27 @@ struct Day2: ParsableCommand {
         }
     }
 
+    fileprivate func task1(_ ranges: [(Int, Int)]) {
+        var invalidCounter: Int = 0
+        for (lhsIdx, rhsIdx) in ranges {
+            let range: ClosedRange<Int> = lhsIdx...rhsIdx
+            range.forEach { id in
+                var currentID: String = String(id)
+                if currentID.count % 2 == 0 {
+                    let midIdx = currentID.count / 2
+                    let splitIdx = currentID.index(currentID.startIndex, offsetBy: midIdx)
+                    let lhs = currentID[..<splitIdx]
+                    let rhs = currentID[splitIdx...]
+                    if lhs == rhs {
+                        invalidCounter += id
+                    }
+                }
+            }
+        }
+
+        print("InvalidID count: \(invalidCounter)")
+    }
+
     fileprivate func task2checkInvalid(_ id: String) -> Int {
         let midIdx = id.count / 2
 
@@ -63,28 +84,7 @@ struct Day2: ParsableCommand {
                 invalidCounter += task2checkInvalid(currentID)
             }
         }
-
-        print("InvalidID count: \(invalidCounter)")
-    }
-
-    fileprivate func task1(_ ranges: [(Int, Int)]) {
-        var invalidCounter: Int = 0
-        for (lhsIdx, rhsIdx) in ranges {
-            let range: ClosedRange<Int> = lhsIdx...rhsIdx
-            range.forEach { id in
-                var currentID: String = String(id)
-                if currentID.count % 2 == 0 {
-                    let midIdx = currentID.count / 2
-                    let splitIdx = currentID.index(currentID.startIndex, offsetBy: midIdx)
-                    let lhs = currentID[..<splitIdx]
-                    let rhs = currentID[splitIdx...]
-                    if lhs == rhs {
-                        invalidCounter += id
-                    }
-                }
-            }
-        }
-
+        
         print("InvalidID count: \(invalidCounter)")
     }
 }
