@@ -64,7 +64,6 @@ struct Day4: ParsableCommand {
     }
 
     fileprivate func task2(_ input: [[String]]) {
-        // input.forEach { print($0) }
         let ROW_LENGTH = input.first!.count
         var flatInput = input.flatMap{$0}
 
@@ -143,14 +142,9 @@ struct Day4: ParsableCommand {
             returnArrayRaw.removeAll(where: { $0 == position - Direction.downLeft.offset(rowLength: length)})
         }
 
-        var returnArray: [Int] = []
-        returnArrayRaw.forEach { pos in
-            if pos >= 0 && pos < maxLength {
-                returnArray.append(pos)
-            }
-        }
+        returnArrayRaw.removeAll(where: { $0 < 0 || $0 >= maxLength })
 
-        return returnArray
+        return returnArrayRaw
     }
 }
 

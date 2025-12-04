@@ -31,7 +31,7 @@ struct Day2: ParsableCommand {
         for (lhsIdx, rhsIdx) in ranges {
             let range: ClosedRange<Int> = lhsIdx...rhsIdx
             range.forEach { id in
-                var currentID: String = String(id)
+                let currentID: String = String(id)
                 if currentID.count % 2 == 0 {
                     let midIdx = currentID.count / 2
                     let splitIdx = currentID.index(currentID.startIndex, offsetBy: midIdx)
