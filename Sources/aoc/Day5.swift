@@ -102,7 +102,7 @@ struct Day5: ParsableCommand {
     ///   - ingredient: The specific ingredient being checked
     ///
     /// - Returns: `true` if the ingredient is in any range, otherwise `false`.
-    fileprivate func isFresh(ranges rawRanges: [String], ingredient: Int) -> Bool { 
+    fileprivate func isFresh(ranges rawRanges: [String], ingredient: Int) -> Bool {
         let ranges = rawRanges.map(stringToClosedRange)
         for range in ranges {
             if range.contains(ingredient) {
