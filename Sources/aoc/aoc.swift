@@ -14,6 +14,6 @@ struct aoc: ParsableCommand {
         abstract: "Run Advent of Code challenges.",
         usage: "aoc --day <day_number>",
         discussion: "Select the day to run using the --day argument.",
-        subcommands: [Day1.self, Day2.self, Day3.self, Day4.self, Day5.self, Day6.self]
+        subcommands: [Day1.self, Day2.self, Day3.self, Day4.self, Day5.self, Day6.self, Day7.self]
     )
 }
